@@ -1,0 +1,13 @@
+{
+  "provider": "Render",
+  "plan": "Free",
+  "url": "https://loan-approval-mlops-w8p2.onrender.com",
+  "service_id": "srv-dbuu8j59fdbs73b14tu0",
+  "deployment_id": "dep-dbuu8jl9fdbs73b14ut0",
+  "commit": "f61c45089e3a1a7fc2e2d16bcf8ce5db4ff3d83e",
+  "status": "live_verified",
+  "health_path": "/health",
+  "port": 8000,
+  "logging": "File logging; free plan storage is ephemeral",
+  "verified_at_utc": "2026-11-18T17:49:29.031701+00:00"
+}

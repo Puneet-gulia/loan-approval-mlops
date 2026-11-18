@@ -4,7 +4,11 @@ CSL236 end-term project: a reproducible training pipeline and a validated FastAP
 
 ## Current status
 
-This package contains implemented source code and local evidence. **GitHub publication, a green hosted CI run, the Docker image build/size and a public deployment are pending.** Docker is unavailable on the build machine, and its saved GitHub credential is invalid. Screenshots and metrics in this package describe local execution only. Add team details before submission.
+[![CI](https://github.com/Puneet-gulia/loan-approval-mlops/actions/workflows/ci.yml/badge.svg)](https://github.com/Puneet-gulia/loan-approval-mlops/actions/workflows/ci.yml)
+
+**Published:** [GitHub repository](https://github.com/Puneet-gulia/loan-approval-mlops). **Verified:** [GitHub Actions run](https://github.com/Puneet-gulia/loan-approval-mlops/actions/runs/44360621163), 52 passing API/pipeline tests, Docker image build and valid/invalid prediction checks. Container logs survived a restart both locally and in CI. The local Apple Silicon image is 157,453,993 bytes (157.45 MB), and the CI Linux amd64 image is 159,706,078 bytes (159.71 MB).
+
+**Live:** [Loan approval app](https://loan-approval-mlops-w8p2.onrender.com) and [interactive API docs](https://loan-approval-mlops-w8p2.onrender.com/docs). Public checks passed for UI, docs, health, a valid prediction, credit-profile comparison and HTTP 422. The free Render service manages its process lifecycle. **Only team details remain to be filled in.**
 
 ## Problem and dataset
 
@@ -83,6 +87,32 @@ Selected model holdout: **accuracy 0.9953, Rejected F1 0.9938, Approved F1 0.996
 
 **Local tests:** 52 passed (one upstream Starlette/AnyIO deprecation warning). See the saved transcript for details.
 
+## Live deployment
+
+- [Application](https://loan-approval-mlops-w8p2.onrender.com)
+- [API documentation](https://loan-approval-mlops-w8p2.onrender.com/docs)
+- [Health](https://loan-approval-mlops-w8p2.onrender.com/health)
+- [PDF report](https://github.com/Puneet-gulia/loan-approval-mlops/blob/main/docs/Loan_Approval_Report.pdf)
+- [PowerPoint](https://github.com/Puneet-gulia/loan-approval-mlops/blob/main/docs/Loan_Approval_Presentation.pptx)
+
+![Live deployment](docs/evidence/render-live.jpg)
+
+![Live sample prediction](docs/evidence/live-ui.jpg)
+
+The verified service is on Render's free plan. It may sleep after inactivity and take 50 seconds or more to wake. Application logging is active, but free-instance filesystem storage is ephemeral and logs do not survive instance replacement. Local/CI Docker-volume tests verified durable logs across container restarts. No payment or paid plan was selected.
+
+Recheck the deployed endpoints with:
+
+```bash
+python verify_service.py --url https://loan-approval-mlops-w8p2.onrender.com
+```
+
+## Publication evidence
+
+![Actual GitHub Actions success](docs/evidence/github-ci.jpg)
+
+[Hosted CI run](https://github.com/Puneet-gulia/loan-approval-mlops/actions/runs/44360621163). Downloaded artifacts: `docs/evidence/github-ci/`. These include actual Linux pytest output, container smoke checks and image size. Local build and restart evidence is alongside them.
+
 ## API example
 
 ```bash
@@ -103,11 +133,11 @@ Change `cibil_score` to 901 to demonstrate HTTP 422. Compare otherwise identical
 
 ![Actual local pytest transcript](docs/evidence/pytest.jpg)
 
-All captures show local execution. The complete validation response is in `docs/evidence/invalid-422.jpg`. Hosted CI and deployment evidence remain pending.
+All captures show local execution. The complete validation response is in `docs/evidence/invalid-422.jpg`. Hosted CI evidence is in `docs/evidence/github-ci.jpg` and [the recorded run](https://github.com/Puneet-gulia/loan-approval-mlops/actions/runs/44360621163). The [live Render deployment](https://loan-approval-mlops-w8p2.onrender.com) is verified. See `docs/evidence/live-verification.json` and the live screenshots.
 
 ## Tests and evidence
 
-`tests/test_app.py` covers health, UI/static files, valid predictions, logging, domain behaviour, every field's constraints, missing fields, extra fields, exact boundaries, OpenAPI, one startup load, logging failures and preprocessing serialization. `docs/evidence/pytest.txt` records actual local results. UI and MLflow captures describe local operation. No simulated GitHub green check or deployment screenshot is included.
+`tests/test_app.py` covers health, UI/static files, valid predictions, logging, domain behaviour, every field's constraints, missing fields, extra fields, exact boundaries, OpenAPI, one startup load, logging failures and preprocessing serialization. `docs/evidence/pytest.txt` records actual local results. UI and MLflow captures describe local operation. A real green GitHub Actions screenshot and downloaded CI artifacts are included. Live deployment and verification evidence are included in `docs/evidence/live-verification.json`, `deployment.json`, `render-live.jpg`, `live-ui.jpg`, `live-docs.jpg` and `live-422.jpg`.
 
 ## Docker
 
@@ -121,17 +151,17 @@ docker image inspect loan-approval --format '{{.Size}}'
 docker compose up --build -d
 ```
 
-**Measured image size: pending Docker build.** Record the output above in bytes and MB after running it. The Dockerfile has not been built locally because Docker is not installed here. CI will build and smoke-test it after publishing.
+**Measured image sizes:** local linux/arm64: **157,453,993 bytes (157.45 MB)**; CI linux/amd64: **159,706,078 bytes (159.71 MB)**. The image built successfully on both. Local and CI checks verified UI/docs/health, a valid prediction, stronger-vs-weaker credit examples, HTTP 422, and log persistence after restart. Raw records are under `docs/evidence/`.
 
 ## CI and deployment
 
-`.github/workflows/ci.yml` runs on pushes to main and pull requests. It installs dependencies, trains a baseline from scratch, runs pytest, builds Docker and probes `/health`. It uploads the image size and training metadata. A green check can only be recorded after running on GitHub.
+`.github/workflows/ci.yml` runs on pushes to main and pull requests. It installs dependencies, trains a baseline from scratch, runs pytest, builds Docker and probes `/health`. It uploads the image size and training metadata. The first [hosted run passed](https://github.com/Puneet-gulia/loan-approval-mlops/actions/runs/44360621163); the latest status is visible in the badge above.
 
 Deployment option A: a Linux host with Docker. Clone the published repository, build and use `docker compose up --build -d`; allow the service port and terminate HTTPS at the hosting platform or reverse proxy. Restart the host/container once to verify recovery. Mount logs persistently.
 
-Deployment option B: a Docker-capable platform using `render.yaml`. Confirm the platform's current plan, restart and storage behaviour before creating a service. The supplied config does not provision persistent storage. For persistent logs, mount a supported disk and set `PREDICTION_LOG` to its path, or use the Linux Docker volume approach. Ephemeral platform storage loses logs on replacement. No cloud service or paid resource was created.
+Deployment option B: a Docker-capable platform using `render.yaml`. Confirm the platform's current plan, restart and storage behaviour before creating a service. The supplied config does not provision persistent storage. For persistent logs, mount a supported disk and set `PREDICTION_LOG` to its path, or use the Linux Docker volume approach. Ephemeral platform storage loses logs on replacement. A free Docker web service was created on Render: [live application](https://loan-approval-mlops-w8p2.onrender.com). No paid resource was provisioned.
 
-Set `PORT` when a host requires it. `/health` is the health endpoint. `MODEL_PATH` and `PREDICTION_LOG` are configurable. Use one worker for safe file rotation. **Public URL: pending deployment.** Free hosting policies change; no particular service is guaranteed to remain free.
+Set `PORT` when a host requires it. `/health` is the health endpoint. `MODEL_PATH` and `PREDICTION_LOG` are configurable. Use one worker for safe file rotation. **Public URL: [https://loan-approval-mlops-w8p2.onrender.com](https://loan-approval-mlops-w8p2.onrender.com).** The service uses the free plan with `/health` and `PORT=8000`. It was created from the public repository at commit `f61c450`; app/model code is unchanged in later documentation commits. A replacement deployment may discard local log files. For durable logs, use a persistent volume on a supporting host. Public-repository services may require a manual deploy for later changes unless Git/Blueprint auto-deploy is configured. Free hosting policies change; no particular service is guaranteed to remain free.
 
 ## Monitoring and drift bonus
 
@@ -184,7 +214,7 @@ The extra preprocessing module keeps serialization importable. The original note
 
 ## Submission and team details
 
-Fill out `submission.json`, then use the supplied submission documents as drafts until these details are complete. Rename the report and deck to `Name_RollNo.pdf` and `Name_RollNo.pptx` as required. Contributions must reflect actual work and commits; do not attribute generated work to invented team members.
+Fill out `submission.json` with the actual team information, then update the documents. GitHub, Docker, CI and live-deployment verification are complete. Rename the report and deck to `Name_RollNo.pdf` and `Name_RollNo.pptx` as required. Contributions must reflect actual work and commits; do not attribute generated work to invented team members.
 
 | Member | Roll number | Section | Actual contribution |
 |---|---|---|---|
@@ -192,13 +222,13 @@ Fill out `submission.json`, then use the supplied submission documents as drafts
 
 Outstanding submission evidence:
 
-- Publish a public repository or share it with the instructor. Each member must make their own meaningful commits.
-- Run the workflow and capture the latest green GitHub Actions run.
-- Build Docker and record its measured size.
-- Deploy, verify public `/`, `/docs`, `/health` and a prediction, then add the live URL.
-- Add authentic CI/deployment evidence to the README, PDF and PPT.
+- The public repository is published. Each member must still make their own meaningful commits.
+- CI and Docker checks passed. Capture the latest run again after any final code changes.
+- Docker image size is recorded above with local and CI verification evidence.
+- Public `/`, `/docs`, `/health`, valid predictions and invalid-input rejection are verified. Check the service again before the viva, allowing for a free-plan cold start.
+- Authentic CI/deployment evidence and public links are included. Preserve the evidence when filling in team information.
 - Fill in names, roll numbers, section and actual contributions. Check the guideline's 1–3-member rule.
-- Replace the links page's pending entries with working GitHub, live service, `/docs` and hosted PDF links.
+- The presentation links page includes working GitHub, live service, `/docs` and hosted report links. Recheck them before submitting.
 
 ## References
 

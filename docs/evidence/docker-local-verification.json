@@ -1,0 +1,23 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "status": "passed",
+  "checks": [
+    "UI",
+    "docs",
+    "health",
+    "valid prediction",
+    "domain logic",
+    "HTTP 422"
+  ],
+  "sample_prediction": {
+    "prediction": "Approved",
+    "approval_probability": 0.984869537546709,
+    "tips": [
+      "Keep repayments on time to maintain your credit history.",
+      "Check the proposed repayment against your regular expenses and existing obligations.",
+      "Verify income and asset documents before submitting an application."
+    ],
+    "request_id": "f659df3d-a61f-4647-a764-ce909aa2bfbd",
+    "model_version": "312899f599c4"
+  }
+}

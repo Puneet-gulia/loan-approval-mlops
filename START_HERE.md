@@ -13,10 +13,10 @@ The trained model is included, so you can start the app before retraining. Run `
 
 ## Documents
 
-The docs/ folder contains the nine-page report and eleven-slide editable PowerPoint. Both are drafts for final submission because team details, public links and hosted evidence are missing. Complete submission.json with the real details and update the documents. Rename the report and slides as required by the guidelines.
+The docs/ folder contains the nine-page report and eleven-slide editable PowerPoint. Both include the public links and hosted evidence. Fill in the actual team details before final submission. Complete submission.json with the real details and update the documents. Rename the report and slides as required by the guidelines.
 
 ## Remaining work
 
-Docker is not installed on the machine used to build this package. Its saved GitHub login is invalid. The files for Docker, GitHub Actions and deployment are included, but image size, a green hosted run and a public URL cannot be verified until those tools/accounts are available. The README gives the commands and handoff checklist.
+GitHub is published at https://github.com/Puneet-gulia/loan-approval-mlops. Docker and CI verification passed; image sizes and evidence are in README.md. The free cloud deployment is live at https://loan-approval-mlops-w8p2.onrender.com. Its public UI, API docs, health, valid predictions and HTTP 422 passed verification. Only team details remain pending.
 
-Do not submit the ZIP as a claim that cloud deployment has already completed. Publish the repository, verify Docker and CI, deploy, and add authentic screenshots and public links first.
+Fill in the team details and rename the report/slides before submission. Recheck the live URL before demo day. The free service may take 50 seconds or more to wake, and its prediction log files reset when the instance is replaced.

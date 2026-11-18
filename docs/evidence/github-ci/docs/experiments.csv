@@ -1,0 +1,2 @@
+run_id,algorithm,n_estimators,max_depth,cv_accuracy,cv_f1_rejected,cv_f1_std
+464990a3aa5c488389c581b3def88cf5,random_forest,100,6,0.9964863473390825,0.9953261887189307,0.0009583099201155895

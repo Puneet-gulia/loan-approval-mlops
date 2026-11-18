@@ -1,0 +1,69 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.18, pytest-8.3.5, pluggy-1.7.0 -- /opt/hostedtoolcache/Python/3.11.18/x64/bin/python
+cachedir: .pytest_cache
+rootdir: /home/runner/work/loan-approval-mlops/loan-approval-mlops
+configfile: pytest.ini
+testpaths: tests
+plugins: anyio-4.16.0
+collecting ... collected 52 items
+
+tests/test_app.py::test_health PASSED                                    [  1%]
+tests/test_app.py::test_ui_loads PASSED                                  [  3%]
+tests/test_app.py::test_valid_prediction_and_logging PASSED              [  5%]
+tests/test_app.py::test_domain_stronger_credit_profile_scores_higher PASSED [  7%]
+tests/test_app.py::test_contract_invalid_values_return_422[no_of_dependents--1] PASSED [  9%]
+tests/test_app.py::test_contract_invalid_values_return_422[no_of_dependents-6] PASSED [ 11%]
+tests/test_app.py::test_contract_invalid_values_return_422[education-Doctorate] PASSED [ 13%]
+tests/test_app.py::test_contract_invalid_values_return_422[self_employed-Maybe] PASSED [ 15%]
+tests/test_app.py::test_contract_invalid_values_return_422[income_annum-99999] PASSED [ 17%]
+tests/test_app.py::test_contract_invalid_values_return_422[income_annum-9900001] PASSED [ 19%]
+tests/test_app.py::test_contract_invalid_values_return_422[loan_amount-299999] PASSED [ 21%]
+tests/test_app.py::test_contract_invalid_values_return_422[loan_amount-39500001] PASSED [ 23%]
+tests/test_app.py::test_contract_invalid_values_return_422[loan_term-0] PASSED [ 25%]
+tests/test_app.py::test_contract_invalid_values_return_422[loan_term-22] PASSED [ 26%]
+tests/test_app.py::test_contract_invalid_values_return_422[loan_term-3] PASSED [ 28%]
+tests/test_app.py::test_contract_invalid_values_return_422[cibil_score-299] PASSED [ 30%]
+tests/test_app.py::test_contract_invalid_values_return_422[cibil_score-901] PASSED [ 32%]
+tests/test_app.py::test_contract_invalid_values_return_422[residential_assets_value--1] PASSED [ 34%]
+tests/test_app.py::test_contract_invalid_values_return_422[residential_assets_value-29100001] PASSED [ 36%]
+tests/test_app.py::test_contract_invalid_values_return_422[commercial_assets_value--1] PASSED [ 38%]
+tests/test_app.py::test_contract_invalid_values_return_422[commercial_assets_value-19400001] PASSED [ 40%]
+tests/test_app.py::test_contract_invalid_values_return_422[luxury_assets_value--1] PASSED [ 42%]
+tests/test_app.py::test_contract_invalid_values_return_422[luxury_assets_value-39200001] PASSED [ 44%]
+tests/test_app.py::test_contract_invalid_values_return_422[bank_asset_value--1] PASSED [ 46%]
+tests/test_app.py::test_contract_invalid_values_return_422[bank_asset_value-14700001] PASSED [ 48%]
+tests/test_app.py::test_contract_invalid_values_return_422[cibil_score-780] PASSED [ 50%]
+tests/test_app.py::test_contract_invalid_values_return_422[cibil_score-True] PASSED [ 51%]
+tests/test_app.py::test_contract_invalid_values_return_422[loan_term-10.0] PASSED [ 53%]
+tests/test_app.py::test_contract_invalid_values_return_422[income_annum-None] PASSED [ 55%]
+tests/test_app.py::test_contract_invalid_values_return_422[education-1] PASSED [ 57%]
+tests/test_app.py::test_missing_field_is_422[no_of_dependents] PASSED    [ 59%]
+tests/test_app.py::test_missing_field_is_422[education] PASSED           [ 61%]
+tests/test_app.py::test_missing_field_is_422[self_employed] PASSED       [ 63%]
+tests/test_app.py::test_missing_field_is_422[income_annum] PASSED        [ 65%]
+tests/test_app.py::test_missing_field_is_422[loan_amount] PASSED         [ 67%]
+tests/test_app.py::test_missing_field_is_422[loan_term] PASSED           [ 69%]
+tests/test_app.py::test_missing_field_is_422[cibil_score] PASSED         [ 71%]
+tests/test_app.py::test_missing_field_is_422[residential_assets_value] PASSED [ 73%]
+tests/test_app.py::test_missing_field_is_422[commercial_assets_value] PASSED [ 75%]
+tests/test_app.py::test_missing_field_is_422[luxury_assets_value] PASSED [ 76%]
+tests/test_app.py::test_missing_field_is_422[bank_asset_value] PASSED    [ 78%]
+tests/test_app.py::test_extra_field_is_422 PASSED                        [ 80%]
+tests/test_app.py::test_nonfinite_raw_json_is_422[NaN] PASSED            [ 82%]
+tests/test_app.py::test_nonfinite_raw_json_is_422[Infinity] PASSED       [ 84%]
+tests/test_app.py::test_nonfinite_raw_json_is_422[-Infinity] PASSED      [ 86%]
+tests/test_app.py::test_malformed_json_is_422 PASSED                     [ 88%]
+tests/test_app.py::test_exact_contract_boundaries_are_valid[False] PASSED [ 90%]
+tests/test_app.py::test_exact_contract_boundaries_are_valid[True] PASSED [ 92%]
+tests/test_app.py::test_openapi_documents_contract PASSED                [ 94%]
+tests/test_app.py::test_model_loads_once_at_startup PASSED               [ 96%]
+tests/test_app.py::test_logging_failure_returns_503 PASSED               [ 98%]
+tests/test_app.py::test_preprocessing_is_training_only_and_roundtrips PASSED [100%]
+
+=============================== warnings summary ===============================
+../../../../../opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/starlette/testclient.py:37
+  /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/starlette/testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 52 passed, 1 warning in 2.51s =========================

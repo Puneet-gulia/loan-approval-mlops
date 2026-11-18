@@ -5,7 +5,7 @@
 - Open the deployed UI, load an example, and request an estimate.
 - Open /docs and submit cibil_score=901 to demonstrate HTTP 422.
 - Open MLflow and compare the four runs.
-- Show the latest real green GitHub Actions run after publishing.
+- Show the latest green GitHub Actions run linked from the README badge.
 
 ## Questions to prepare
 
@@ -31,6 +31,6 @@
 
 **What are the tips?** Deterministic rules, separate from the model. They are not causal explanations of why an application received a label.
 
-**How do CI and deployment differ?** CI installs, trains, tests and builds on GitHub. Deployment runs the serving container on a host. The supplied files implement both configurations, but the team must execute and verify them with its accounts.
+**How do CI and deployment differ?** CI installs, trains, tests and builds on GitHub. Deployment runs the serving container on a host. Both Docker and GitHub CI have been verified, and the Render deployment is live. Explain the free-host cold start and ephemeral logging limitation.
 
 **What did each member do?** Answer with actual work and commits. Names and contributions have deliberately not been invented.

@@ -19,7 +19,9 @@ jobs:
       - name: Train baseline from scratch
         run: python train.py --n_estimators 100 --max_depth 6
       - name: Run API and pipeline tests
-        run: python -m pytest -v --tb=short | tee pytest-output.txt
+        run: |
+          set -o pipefail
+          python -m pytest -v --tb=short | tee pytest-output.txt
       - name: Build serving image
         run: docker build -t loan-approval:ci .
       - name: Smoke test container

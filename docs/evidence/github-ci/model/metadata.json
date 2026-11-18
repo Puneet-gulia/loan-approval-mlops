@@ -1,0 +1,86 @@
+{
+  "trained_at_utc": "2026-11-18T17:37:41.795767+00:00",
+  "selected_run": {
+    "run_id": "464990a3aa5c488389c581b3def88cf5",
+    "algorithm": "random_forest",
+    "n_estimators": 100,
+    "max_depth": 6,
+    "cv_accuracy": 0.9964863473390825,
+    "cv_f1_rejected": 0.9953261887189307,
+    "cv_f1_std": 0.0009583099201155895
+  },
+  "test_metrics": {
+    "test_accuracy": 0.9953161592505855,
+    "test_f1_rejected": 0.9937694704049844,
+    "test_f1_approved": 0.9962476547842402
+  },
+  "dataset_sha256": "4b5cd093d178378f4cfa8c107adb6e599b88be9d8a3b51f3b99c0d5914154e54",
+  "model_sha256": "312899f599c485a22af072395c862805e7af03b8b24b51a2cd009487a2e2f5dd",
+  "rows": 4269,
+  "train_rows": 3415,
+  "test_rows": 854,
+  "input_features": [
+    "no_of_dependents",
+    "education",
+    "self_employed",
+    "income_annum",
+    "loan_amount",
+    "loan_term",
+    "cibil_score",
+    "residential_assets_value",
+    "commercial_assets_value",
+    "luxury_assets_value",
+    "bank_asset_value"
+  ],
+  "transformed_features": [
+    "no_of_dependents",
+    "education",
+    "self_employed",
+    "income_annum",
+    "loan_amount",
+    "loan_term",
+    "cibil_score",
+    "residential_assets_value",
+    "commercial_assets_value",
+    "luxury_assets_value",
+    "bank_asset_value",
+    "cibil_band",
+    "term_band",
+    "income_band",
+    "loan_to_income",
+    "total_assets"
+  ],
+  "confusion_matrix": [
+    [
+      319,
+      4
+    ],
+    [
+      0,
+      531
+    ]
+  ],
+  "class_order": [
+    "Rejected",
+    "Approved"
+  ],
+  "majority_baseline_accuracy": 0.6217798594847775,
+  "feature_importance": {
+    "no_of_dependents": 0.0010236301360322278,
+    "education": 0.0002944672956695075,
+    "self_employed": 0.00017620236347762455,
+    "income_annum": 0.0034116713990238598,
+    "loan_amount": 0.007464717911126015,
+    "loan_term": 0.03923362108390321,
+    "cibil_score": 0.3692864303355603,
+    "residential_assets_value": 0.002577196453954612,
+    "commercial_assets_value": 0.002502522731835969,
+    "luxury_assets_value": 0.003181133056876176,
+    "bank_asset_value": 0.001670399599398311,
+    "cibil_band": 0.4786264738344001,
+    "term_band": 0.04076467753134656,
+    "income_band": 0.000468409225292898,
+    "loan_to_income": 0.046011430121113715,
+    "total_assets": 0.0033070169209887985
+  }
+}

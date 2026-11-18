@@ -1,8 +1,18 @@
 """Smoke-test a running local/container/cloud service using fictional inputs."""
 import argparse
 import json
+import ssl
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
+
+try:
+    import certifi
+except ImportError:
+    TLS = ssl.create_default_context()
+else:
+    # Python.org installations on macOS may not have a system CA bundle.
+    # certifi comes with the development HTTP client; verification stays on.
+    TLS = ssl.create_default_context(cafile=certifi.where())
 
 SAMPLE = {'no_of_dependents': 2, 'education': 'Graduate', 'self_employed': 'No',
           'income_annum': 5000000, 'loan_amount': 15000000, 'loan_term': 10,
@@ -17,12 +27,12 @@ def main():
     args = parser.parse_args()
     base = args.url.rstrip('/')
     for route in ['/', '/docs', '/health']:
-        with urlopen(base + route, timeout=60) as response:
+        with urlopen(base + route, timeout=60, context=TLS) as response:
             assert response.status == 200
     def predict(data):
         request = Request(base + '/predict', data=json.dumps(data).encode(),
                           headers={'Content-Type': 'application/json'})
-        with urlopen(request, timeout=60) as response:
+        with urlopen(request, timeout=60, context=TLS) as response:
             assert response.status == 200
             return json.load(response)
     result = predict(SAMPLE)

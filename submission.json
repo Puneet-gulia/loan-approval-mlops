@@ -2,9 +2,14 @@
   "project_name": "Loan Approval Prediction",
   "members": [],
   "section": "Pending",
-  "repository_url": null,
-  "live_url": null,
-  "report_url": null,
-  "docker_image_size_bytes": null,
-  "ci_run_url": null
+  "repository_url": "https://github.com/Puneet-gulia/loan-approval-mlops",
+  "live_url": "https://loan-approval-mlops-w8p2.onrender.com",
+  "report_url": "https://github.com/Puneet-gulia/loan-approval-mlops/blob/main/docs/Loan_Approval_Report.pdf",
+  "docker_image_size_bytes": 159706078,
+  "ci_run_url": "https://github.com/Puneet-gulia/loan-approval-mlops/actions/runs/44360621163",
+  "render_service_id": "srv-dbuu8j59fdbs73b14tu0",
+  "render_deploy_id": "dep-dbuu8jl9fdbs73b14ut0",
+  "deployment_status": "live_verified",
+  "deployed_commit": "f61c45089e3a1a7fc2e2d16bcf8ce5db4ff3d83e",
+  "verified_at_utc": "2026-11-18T17:49:29.031701+00:00"
 }
