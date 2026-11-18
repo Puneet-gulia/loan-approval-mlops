@@ -1,0 +1,69 @@
+{
+  "status": "review",
+  "samples": 40,
+  "features": {
+    "no_of_dependents": {
+      "mean": 2.0,
+      "std": 0.0,
+      "mean_shift_in_training_std": 0.28850348820138416,
+      "std_ratio": 0.0,
+      "flag": true
+    },
+    "income_annum": {
+      "mean": 5000000.0,
+      "std": 0.0,
+      "mean_shift_in_training_std": 0.021024939657118255,
+      "std_ratio": 0.0,
+      "flag": true
+    },
+    "loan_amount": {
+      "mean": 15000000.0,
+      "std": 0.0,
+      "mean_shift_in_training_std": 0.010249218356012724,
+      "std_ratio": 0.0,
+      "flag": true
+    },
+    "loan_term": {
+      "mean": 10.0,
+      "std": 0.0,
+      "mean_shift_in_training_std": 0.15269509430783265,
+      "std_ratio": 0.0,
+      "flag": true
+    },
+    "cibil_score": {
+      "mean": 603.5,
+      "std": 150.06415294799754,
+      "mean_shift_in_training_std": 0.023644537143097173,
+      "std_ratio": 0.8678312803253758,
+      "flag": false
+    },
+    "residential_assets_value": {
+      "mean": 8000000.0,
+      "std": 0.0,
+      "mean_shift_in_training_std": 0.08738299909551998,
+      "std_ratio": 0.0,
+      "flag": true
+    },
+    "commercial_assets_value": {
+      "mean": 3000000.0,
+      "std": 0.0,
+      "mean_shift_in_training_std": 0.45041267425615855,
+      "std_ratio": 0.0,
+      "flag": true
+    },
+    "luxury_assets_value": {
+      "mean": 10000000.0,
+      "std": 0.0,
+      "mean_shift_in_training_std": 0.5654559317403292,
+      "std_ratio": 0.0,
+      "flag": true
+    },
+    "bank_asset_value": {
+      "mean": 4000000.0,
+      "std": 0.0,
+      "mean_shift_in_training_std": 0.304059429997192,
+      "std_ratio": 0.0,
+      "flag": true
+    }
+  }
+}

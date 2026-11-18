@@ -1,0 +1,11 @@
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+mlruns/
+logs/
+.env
+.DS_Store
+*.db-shm
+*.db-wal

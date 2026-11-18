@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Loan approval studio</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header><a class="brand" href="/">Loan approval studio<span>CSL236 / END-TERM PROJECT</span></a><a href="/docs">Explore the API ↗</a></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">FROM APPLICATION TO ESTIMATE</p><h1>A clearer view of<br>your loan application.</h1><p class="lede">Explore how a machine learning model reads an application. Enter the details below to see its predicted outcome.</p></div><aside class="intro-note"><span class="dot"></span><strong>Built for learning</strong><p>This demonstration predicts labels from a public dataset. Results are not a lender’s decision or a guarantee of approval.</p></aside></section>
+    <div class="workspace">
+      <form id="application">
+        <div class="form-title"><div><p class="eyebrow">01 / APPLICATION DETAILS</p><h2>Tell us about the application</h2></div><button type="button" id="example" class="quiet">Load example</button></div>
+        <p class="help">Amounts are in whole Indian rupees (INR), without commas. All fields are required.</p>
+        <fieldset><legend>Applicant profile</legend><div class="fields" id="profile"></div></fieldset>
+        <fieldset><legend>Income & loan</legend><div class="fields" id="loan"></div></fieldset>
+        <fieldset><legend>Declared assets</legend><div class="fields" id="assets"></div></fieldset>
+        <p id="error" role="alert" hidden></p>
+        <button id="submit" class="primary" type="submit">Estimate loan outcome <span>↗</span></button>
+        <p class="fine">Application values are recorded for this project’s model monitoring. Use sample data.</p>
+      </form>
+      <aside class="result" aria-live="polite" aria-atomic="true">
+        <p class="eyebrow">02 / MODEL ESTIMATE</p>
+        <div id="empty"><div class="result-mark">↗</div><h2>Your estimate<br>starts here.</h2><p>Complete the application, or load an example to explore the model.</p><hr><p class="small">The model considers credit score, loan details, income and assets. Each result includes three general application tips.</p></div>
+        <div id="outcome" hidden><p id="decision-label">Predicted outcome</p><h2 id="decision"></h2><p class="score"><span id="probability"></span><span>model score for approval</span></p><div class="track"><div id="score-fill"></div></div><p class="small">This score is not a calibrated probability of a real lender approving your loan.</p><hr><h3>Before you apply</h3><ol id="tips"></ol><p class="fine" id="version"></p></div>
+      </aside>
+    </div>
+  </main>
+  <footer><span>Loan approval prediction / CSL236</span><span>Education and experimentation</span></footer>
+</body></html>

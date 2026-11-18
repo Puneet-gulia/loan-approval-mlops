@@ -1,0 +1,12 @@
+# A container host configuration. Check current pricing before selecting a plan.
+services:
+  - type: web
+    name: loan-approval
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: "8000"
+      - key: PREDICTION_LOG
+        value: /app/logs/predictions.jsonl

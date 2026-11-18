@@ -1,0 +1,50 @@
+name: Train, test and build
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Train baseline from scratch
+        run: python train.py --n_estimators 100 --max_depth 6
+      - name: Run API and pipeline tests
+        run: python -m pytest -v --tb=short | tee pytest-output.txt
+      - name: Build serving image
+        run: docker build -t loan-approval:ci .
+      - name: Smoke test container
+        run: |
+          docker run -d --name loan-approval -p 8000:8000 --restart unless-stopped -v ci-predictions:/app/logs loan-approval:ci
+          for i in $(seq 1 30); do
+            if curl --fail http://localhost:8000/health; then break; fi
+            sleep 2
+          done
+          curl --fail http://localhost:8000/health
+          python verify_service.py > container-verification.json
+          docker restart loan-approval
+          for i in $(seq 1 30); do
+            if curl --fail http://localhost:8000/health; then break; fi
+            sleep 2
+          done
+          curl --fail http://localhost:8000/health
+          docker exec loan-approval python -c "import json,pathlib; rows=[json.loads(line) for line in pathlib.Path('/app/logs/predictions.jsonl').read_text().splitlines()]; assert len(rows)>=3; print('Prediction logs persisted across restart:',len(rows))"
+          docker image inspect loan-approval:ci --format '{{.Size}}' > image-size-bytes.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verification
+          path: |
+            image-size-bytes.txt
+            model/metadata.json
+            docs/experiments.csv
+            pytest-output.txt
+            container-verification.json
