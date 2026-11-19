@@ -13,10 +13,10 @@ The trained model is included, so you can start the app before retraining. Run `
 
 ## Documents
 
-The docs/ folder contains the nine-page report and eleven-slide editable PowerPoint. Both include the public links and hosted evidence. Fill in the actual team details before final submission. Complete submission.json with the real details and update the documents. Rename the report and slides as required by the guidelines.
+The docs/ folder contains the 10-page report and 12-slide editable PowerPoint. Both include the public links and hosted evidence. All three members and section AI-B are included. Complete actual contribution allocations before submission. Individually named submission copies are in docs/submission/.
 
 ## Remaining work
 
-GitHub is published at https://github.com/Puneet-gulia/loan-approval-mlops. Docker and CI verification passed; image sizes and evidence are in README.md. The free cloud deployment is live at https://loan-approval-mlops-w8p2.onrender.com. Its public UI, API docs, health, valid predictions and HTTP 422 passed verification. Only team details remain pending.
+GitHub is published at https://github.com/Puneet-gulia/loan-approval-mlops. Docker and CI verification passed; image sizes and evidence are in README.md. The free cloud deployment is live at https://loan-approval-mlops-w8p2.onrender.com. Its public UI, API docs, health, valid predictions and HTTP 422 passed verification. Only actual contribution allocations remain to be completed.
 
-Fill in the team details and rename the report/slides before submission. Recheck the live URL before demo day. The free service may take 50 seconds or more to wake, and its prediction log files reset when the instance is replaced.
+Complete each member's contribution allocation before submission. Recheck the live URL before demo day. The free service may take 50 seconds or more to wake, and its prediction log files reset when the instance is replaced.

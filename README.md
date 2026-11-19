@@ -8,7 +8,7 @@ CSL236 end-term project: a reproducible training pipeline and a validated FastAP
 
 **Published:** [GitHub repository](https://github.com/Puneet-gulia/loan-approval-mlops). **Verified:** [GitHub Actions run](https://github.com/Puneet-gulia/loan-approval-mlops/actions/runs/44360621163), 52 passing API/pipeline tests, Docker image build and valid/invalid prediction checks. Container logs survived a restart both locally and in CI. The local Apple Silicon image is 157,453,993 bytes (157.45 MB), and the CI Linux amd64 image is 159,706,078 bytes (159.71 MB).
 
-**Live:** [Loan approval app](https://loan-approval-mlops-w8p2.onrender.com) and [interactive API docs](https://loan-approval-mlops-w8p2.onrender.com/docs). Public checks passed for UI, docs, health, a valid prediction, credit-profile comparison and HTTP 422. The free Render service manages its process lifecycle. **Only team details remain to be filled in.**
+**Live:** [Loan approval app](https://loan-approval-mlops-w8p2.onrender.com) and [interactive API docs](https://loan-approval-mlops-w8p2.onrender.com/docs). Public checks passed for UI, docs, health, a valid prediction, credit-profile comparison and HTTP 422. The free Render service manages its process lifecycle. **Team:** Gaurav Sethi (24CSU250), Saksham Srivastava (24CSU179), Puneet Gulia (24CSU167), section AI-B. Actual contribution allocations remain to be completed.
 
 ## Problem and dataset
 
@@ -214,11 +214,13 @@ The extra preprocessing module keeps serialization importable. The original note
 
 ## Submission and team details
 
-Fill out `submission.json` with the actual team information, then update the documents. GitHub, Docker, CI and live-deployment verification are complete. Rename the report and deck to `Name_RollNo.pdf` and `Name_RollNo.pptx` as required. Contributions must reflect actual work and commits; do not attribute generated work to invented team members.
+The 19 November revision includes all three team members and section AI-B, a 10-page report, and a 12-slide editable PowerPoint. GitHub, Docker, CI and live-deployment verification are recorded. Complete actual contribution allocations before submission. Individually named copies matching `Name_RollNo.pdf` and `Name_RollNo.pptx` are included in `docs/submission/`; each contains the same team report/deck. Contributions must reflect actual work and commits; do not attribute generated work to invented team members.
 
 | Member | Roll number | Section | Actual contribution |
 |---|---|---|---|
-| Pending | Pending | Pending | To be completed by the team |
+| Gaurav Sethi | 24CSU250 | AI-B | Add actual work and commit evidence |
+| Saksham Srivastava | 24CSU179 | AI-B | Add actual work and commit evidence |
+| Puneet Gulia | 24CSU167 | AI-B | Add actual work and commit evidence |
 
 Outstanding submission evidence:
 
@@ -227,7 +229,7 @@ Outstanding submission evidence:
 - Docker image size is recorded above with local and CI verification evidence.
 - Public `/`, `/docs`, `/health`, valid predictions and invalid-input rejection are verified. Check the service again before the viva, allowing for a free-plan cold start.
 - Authentic CI/deployment evidence and public links are included. Preserve the evidence when filling in team information.
-- Fill in names, roll numbers, section and actual contributions. Check the guideline's 1–3-member rule.
+- Names, roll numbers and section are included. Complete each member's actual contributions and commit evidence before submission.
 - The presentation links page includes working GitHub, live service, `/docs` and hosted report links. Recheck them before submitting.
 
 ## References
